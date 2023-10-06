@@ -6,47 +6,48 @@ export function AboutUs() {
       <div className={styles.about}>
         <h1>Nosotros</h1>
         <p>
-          Bienvenidos a Lekar Automotriz Nos presentamos, Somos una empresa
-          comercializadora de arranques, alternadores y sus partes. Para todo
-          tipo de vehículos; automóviles, camiones, tractocamiones, montacargas
-          y maquinaria agrícola.
+          Bienvenidos a Farma Cali En Farma Cali, nos enorgullece servir a
+          la comunidad de Cali y sus alrededores con una amplia gama de
+          servicios farmacéuticos y productos de alta calidad. Somos su destino
+          confiable para todas sus necesidades de salud y bienestar.
         </p>
       </div>
 
       <div className={styles.mision}>
         <h5>Misión</h5>
         <p>
-          Ser una empresa especializada en comercializar arranques, alternadores
-          y sus partes, ofreciendo las mejores marcas reconocidas en el mercado,
-          con un excelente servicio al cliente, productos de alta calidad y
-          confiabilidad; nuestros proveedores son aliados estratégicos que dan
-          respaldo y garantía.
+          En Farma Cali, nuestra misión es proporcionar atención farmacéutica
+          de alta calidad y productos de salud confiables para mejorar la
+          calidad de vida de nuestros clientes. Nos esforzamos por ser su aliado
+          en su viaje hacia un bienestar óptimo.
         </p>
       </div>
 
       <div className={styles.vision}>
         <h5>Visión</h5>
         <p>
-          Ser la empresa líder en la comercialización de arranques, alternadores
-          y sus partes para el año 2024 a nivel nacional, crecer con
-          responsabilidad social y vocación al servicio al cliente.
+          En Farma Cali, aspiramos a ser líderes en la industria farmacéutica
+          de la región de Cali y sus alrededores. Nuestra visión es ser
+          reconocidos como el destino preferido para la salud y el bienestar de
+          nuestra comunidad. Nos esforzamos por brindar un servicio excepcional,
+          productos de alta calidad y un enfoque personalizado que nos distinga
+          como la farmacia de confianza de todos los residentes de Cali.
         </p>
       </div>
 
       <div className={styles.phone}>
-        <h5>Líneas de atención</h5>
+        <h5>Línea de atención</h5>
         <ul>
-          <li>(+602) 374 7214</li>
-          <li>(+57) 310 400 4309</li>
-          <li>(+57) 320 771 3003</li>
-          <li>(+57) 312 366 2711</li>
+        
+          <li>(+57) 318 357 6551</li>
+    
         </ul>
       </div>
 
-      <div className={styles.adress}>
+      {/* <div className={styles.adress}>
         <h5>Ubicación:</h5>
         <p>Carrera 16 No. 22 – 39 Cali – Valle</p>
-      </div>
+      </div> */}
     </div>
   );
 }

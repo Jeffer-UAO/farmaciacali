@@ -44,11 +44,15 @@ export function FooterApp() {
   return (
     <div className={styles.btnWhatsapp}>
       <div className={styles.paneluser}>
-        <BtnLink link={"/"} title={"HOME"} logo={<AiOutlineHome size={20} />} />
+        <BtnLink
+          link={"/"}
+          title={"HOME"}
+          logo={<AiOutlineHome size={20} color="green" />}
+        />
         <BtnLink
           link={"/featured"}
           title={"EXCL"}
-          logo={<BsSearch size={20} />}
+          logo={<BsSearch size={20} color="green" />}
         />
 
         <Button
@@ -64,14 +68,16 @@ export function FooterApp() {
           <BtnLink
             link={"/cart"}
             title={"CART"}
-            logo={<AiOutlineShoppingCart size={20} />}
+            logo={<AiOutlineShoppingCart size={20} color="green" />}
           />
         </div>
 
         <BtnLink
-          link={"https://lekar.catalogointeractivo.com.co/admin-dashboard/"}
+          link={
+            "https://farmaciacali.catalogointeractivo.com.co/admin-dashboard/"
+          }
           title={"ADMI"}
-          logo={<CiUser size={20} />}
+          logo={<CiUser size={20} color="green" />}
         />
       </div>
 

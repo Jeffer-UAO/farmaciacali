@@ -50,9 +50,9 @@ export function Footer() {
       </div>
       <div>
         <p className={styles.copyright}>
-        LEKAR AUTOMOTRIZ Copyright © 2023. Todos los derechos
+        FARMA CALI Copyright © 2023. Todos los derechos
           reservados <br />
-          Desarrollado por: SUPRAINNOVATION.SAS <br />
+          Desarrollado por: Jeffer Quiñones <br />
           Cel: 300 530 9990
           Versión 6.0.0
         </p>

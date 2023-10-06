@@ -7,7 +7,9 @@ export function TopBar() {
     <div className={styles.topBarComponent}>
       <div className={styles.topBar}>
         <Link href="/">
-          <CardImg src="/image/logo.webp" alt="Lekar" />{" "}
+          {/* <CardImg src="/image/logo.webp" alt="Lekar" />{" "} */}
+          <h2>COMERCIALIZADORA</h2>
+          <h1>FARMA CALI</h1>
         </Link>       
       </div>     
     </div>

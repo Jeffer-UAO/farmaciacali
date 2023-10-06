@@ -1,6 +1,6 @@
 {
-  "name": "LEKAR",
-  "version": "5.0.2",
+  "name": "FARMA CALI",
+  "version": "6.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

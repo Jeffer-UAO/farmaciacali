@@ -4,9 +4,9 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "LEKAR",
-  "short_name": "Catálogo LEKAR",
-  "description": "Catálogo LEKAR",
+  "name": "FARMA CALI",
+  "short_name": "FARMA CALI",
+  "description": "FARMA CALI",
   "icons": [
     {
       "src": "/icon-192x192.png",
