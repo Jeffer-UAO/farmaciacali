@@ -18,10 +18,10 @@ export default function CartPage() {
   const identificadorUnico = generarIdentificadorUnico();
 
   const customer = {
-    Nombre: user.first_name,
-    Dirección: user.last_name,
-    Teléfono: user.phone_number,
-    Correo: user.email,
+    Nombre: user?.first_name,
+    Dirección: user?.last_name,
+    Teléfono: user?.phone_number,
+    Correo: user?.email,
   };
 
   useEffect(() => {
