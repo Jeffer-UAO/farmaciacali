@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { useCart } from "@/hooks/useCart";
+import { useCart, useAuth } from "@/hooks";
 import { Products } from "@/api/products";
-import { Footer, FooterCart, ListCart, NotFound, Redes, Separator } from "@/components";
+import { Footer, FooterCart, ListCart, NotFound, Redes } from "@/components";
 import { BasicLayout } from "@/layouts";
 import { size } from "lodash";
-import { BASE_NAME } from "@/config/constants";
 
 const productCtrl = new Products();
 
 export default function CartPage() {
+  const { user } = useAuth();
   const { cart } = useCart("");
   const [product, setProduct] = useState("");
   const [load, setLoad] = useState(true);
   const hasProduct = size(product) > 0;
 
   const [newProduct, setNewProduct] = useState("");
-
   const identificadorUnico = generarIdentificadorUnico();
+
+  const customer = {
+    Nombre: user.first_name,
+    Dirección: user.last_name,
+    Teléfono: user.phone_number,
+    Correo: user.email,
+  };
 
   useEffect(() => {
     (async () => {
@@ -34,10 +40,6 @@ export default function CartPage() {
     })();
   }, [cart]);
 
-
-
-
-
   useEffect(() => {
     (async () => {
       try {
@@ -49,31 +51,23 @@ export default function CartPage() {
           for (const key in record) {
             if (
               Object.hasOwnProperty.call(record, key) &&
-              ["name_extend", "quantity", "images", "image_alterna", "ref"].includes(key)
+              ["name_extend", "quantity"].includes(key)
             ) {
               newRecord[key] = record[key];
             }
           }
 
-          if (newRecord.images) {
-            newObjectArray.push({
-              Producto: newRecord.name_extend,
-              Referencia: newRecord.ref,
-              Cantidad: newRecord.quantity,
-              Imagen: BASE_NAME + newRecord.images,
-            },);
-          } else {
-            newObjectArray.push({
-              Producto: newRecord.name_extend,
-              Referencia: newRecord.ref,
-              Cantidad: newRecord.quantity,
-              Imagen: newRecord.image_alterna,
-            },);
-          }
+          newObjectArray.push({
+            P: newRecord.name_extend,
+            Cant: newRecord.quantity,
+          });
         }
         const newArrayAsString = JSON.stringify(newObjectArray, null, 2);
+        const customerAsString = JSON.stringify(customer, null, 2);
 
-        setNewProduct(`Pedido No.  ${identificadorUnico} ${newArrayAsString}`);
+        setNewProduct(
+          `Pedido No. ${identificadorUnico}  ${customerAsString} Detalle del pedido:  ${newArrayAsString}`
+        );
       } catch (error) {
         console.error(error);
       }
@@ -93,7 +87,9 @@ export default function CartPage() {
               <ListCart product={product} />
             ) : (
               <NotFound
-                title={"Uppss... en este momento no hay productos en el Carrito"}
+                title={
+                  "Uppss... en este momento no hay productos en el Carrito"
+                }
               />
             )}
           </>
@@ -106,12 +102,11 @@ export default function CartPage() {
   );
 }
 
-
 function generarIdentificadorUnico() {
-  const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const numeros = '0123456789';
+  const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numeros = "0123456789";
 
-  let identificador = '';
+  let identificador = "";
 
   const letraAleatoria = letras[Math.floor(Math.random() * letras.length)];
   identificador += letraAleatoria;
@@ -120,8 +115,6 @@ function generarIdentificadorUnico() {
     const numeroAleatorio = Math.floor(Math.random() * 10);
     identificador += numeros[numeroAleatorio];
   }
-
-
 
   return identificador;
 }

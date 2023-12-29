@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { BASE_NAME } from "@/config/constants";
 import { useCart } from "@/hooks/useCart";
-import { WhatsApp } from "@/components/WhatsApp";
-import { map } from "lodash";
 import { useWhatsApp } from "@/hooks";
 import Link from "next/link";
 import { toast } from "react-toastify";
@@ -127,7 +125,7 @@ export function Available(props) {
           <BsWhatsapp size={25} color="white" />
         </div>
       </div>
-      <h7>Disponible: {product.productData.qty}</h7>
+      {/* <h7>Disponible: {product.productData.qty}</h7> */}
       <Button
         color="primary"
         onClick={() => addProductId(product.productData.codigo)}
@@ -135,7 +133,7 @@ export function Available(props) {
         Agregar al Carrito
       </Button>
 
-      <Modal isOpen={isOpen} toggle={toggleModal}>
+      <Modal centered isOpen={isOpen} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal}>Ingrese Cantidad</ModalHeader>
 
         <ModalBody>

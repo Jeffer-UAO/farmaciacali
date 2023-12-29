@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import NextNprogress from "nextjs-progressbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../scss/global.scss";
-import { CartProvider } from "@/contexts";
+import { CartProvider, AuthProvider } from "@/contexts";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -20,7 +20,6 @@ export default function App(props) {
     requestNotificationPermission();
   }, []);
 
-  
   useEffect(() => {
     const handleConnectionChange = () => {
       if (navigator.onLine) {
@@ -32,18 +31,16 @@ export default function App(props) {
     };
 
     // Suscribirse a los eventos de conexión
-    window.addEventListener('online', handleConnectionChange);
-    window.addEventListener('offline', handleConnectionChange);
+    window.addEventListener("online", handleConnectionChange);
+    window.addEventListener("offline", handleConnectionChange);
 
     // Eliminar los event listeners cuando el componente se desmonte
     return () => {
-      window.removeEventListener('online', handleConnectionChange);
-      window.removeEventListener('offline', handleConnectionChange);
+      window.removeEventListener("online", handleConnectionChange);
+      window.removeEventListener("offline", handleConnectionChange);
     };
   }, []);
 
-
- 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
@@ -62,19 +59,17 @@ export default function App(props) {
     }
   }, []);
 
-
   const showNotification = () => {
     console.log("volvio la conexion");
-    if ('Notification' in window && Notification.permission === 'granted') {
+    if ("Notification" in window && Notification.permission === "granted") {
       const notificationOptions = {
-        body: '¡La conexión se ha restablecido!',
-        icon: 'ruta/al/icono.png',
+        body: "¡La conexión se ha restablecido!",
+        icon: "ruta/al/icono.png",
       };
-  
-      new Notification('Conexión Restablecida', notificationOptions);
+
+      new Notification("Conexión Restablecida", notificationOptions);
     }
   };
-
 
   return (
     <>
@@ -85,18 +80,20 @@ export default function App(props) {
         height={10}
       />
 
-      <CartProvider>
-        <Component {...pageProps} />
-        <ToastContainer
-          autoClose={2000}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover={false}
-        />
-      </CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <Component {...pageProps} />
+          <ToastContainer
+            autoClose={2000}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover={false}
+          />
+        </CartProvider>
+      </AuthProvider>
     </>
   );
 }

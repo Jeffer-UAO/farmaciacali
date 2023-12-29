@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import { ImageCarousel } from "../ImageCarousel";
 
 import {
-  CardImg,
   CardTitle,
   Button,
   Modal,
@@ -42,7 +41,7 @@ export function DetailProduct(props) {
   };
 
   useEffect(() => {
-    getGalleryByCode(productData.codigo);
+    getGalleryByCode(productData?.codigo);
   }, []);
 
   const changeDetail = (data) => {
@@ -118,29 +117,29 @@ export function DetailProduct(props) {
             <div className={styles.description}>
               <CardTitle className={styles.title}>
                 <h5 className={styles.name_extend}>
-                  {productData.name_extend}
+                  {productData?.name_extend}
                 </h5>
                 <div className={styles.price}>
-                  {productData.price1 > 1 && (
-                    <h5>$ {format(productData.price1)} </h5>
+                  {productData?.price1 > 1 && (
+                    <h5>$ {format(productData?.price1)} </h5>
                   )}
-                  {productData.price2 > 1 && (
-                    <h5>POR MAYOR $ {format(productData.price2)}</h5>
+                  {productData?.price2 > 1 && (
+                    <h5>POR MAYOR $ {format(productData?.price2)}</h5>
                   )}
                 </div>
               </CardTitle>
 
-              {productData.images ? (
+              {productData?.images ? (
                 <div
                   className={styles.whatsapp}
                   onClick={() =>
                     addProductToWhatsApp(
-                      productData.images +
+                      productData?.images +
                         " " +
-                        productData.name_extend +
+                        productData?.name_extend +
                         " " +
                         "Referencia: " +
-                        productData.ref
+                        productData?.ref
                     )
                   }
                 >
@@ -151,27 +150,27 @@ export function DetailProduct(props) {
                   className={styles.whatsapp}
                   onClick={() =>
                     addProductAlternaToWhatsApp(
-                      productData.image_alterna +
+                      productData?.image_alterna +
                         " " +
-                        productData.name_extend +
+                        productData?.name_extend +
                         " " +
                         "Referencia: " +
-                        productData.ref
+                        productData?.ref
                     )
                   }
                 >
                   <BsWhatsapp size={25} color="white" />
                 </div>
               )}
-              <h6>Disponible: {productData.qty}</h6>
+              {/* <h6>Disponible: {productData.qty}</h6> */}
               <Button onClick={() => addProductId(productData.codigo)}>
                 Agregar al Carrito
               </Button>
-              <p>{productData.description}</p>
+              <p>{productData?.description}</p>
             </div>
           </div>
 
-          <div className={styles.relate}>
+          {/* <div className={styles.relate}>
             <p>PRODUCTOS RELACIONADOS</p>
 
             <div className={styles.list}>
@@ -215,7 +214,7 @@ export function DetailProduct(props) {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <Modal centered isOpen={showModal} toggle={openCloseModal}>
             <ModalHeader toggle={openCloseModal}>Ingrese Cantidad</ModalHeader>

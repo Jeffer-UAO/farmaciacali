@@ -1,0 +1,39 @@
+.register_form_client {
+  width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .register_content {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 5px;
+    width: 300px;
+
+    label {
+        margin-top: 1rem;
+      }
+
+    h4 {
+      margin-bottom: 30px !important;
+      border-bottom: solid 3px rgb(0, 13, 255);
+    }
+
+    h6{
+      color: red;
+    }
+    
+  }
+  button {
+    margin: 0.8rem 0;
+  }
+}
+
+.closed {
+  background-color: rgb(4, 21, 253);
+  padding: 8px 25px;
+  color: aliceblue;
+  text-align: end;
+}
